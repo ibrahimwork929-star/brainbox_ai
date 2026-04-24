@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Brane box AI</title>
+</head>
+<body style="text-align:center; font-family:Arial;">
+
+    <h1>🤖 Brane box AI</h1>
+
+    <input id="q" placeholder="Apna sawal likho" style="width:250px; padding:8px;">
+    <button onclick="askAI()">Poochho</button>
+
+    <p id="ans"></p>
+
+    <script>
+    async function askAI(){
+
+        let question = document.getElementById("q").value;
+
+        document.getElementById("ans").innerText = "Soch raha hai... 🤖";
+
+        let response = await fetch("https://api.openai.com/v1/chat/completions", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer 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"
+            },
+            body: JSON.stringify({
+                model: "gpt-4o-mini",
+                messages: [{role: "user", content: question}]
+            })
+        });
+
+        let data = await response.json();
+
+        document.getElementById("ans").innerText =
+            data.choices[0].message.content;
+    }
+    </script>
+
+</body>
+</html>
