@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BrainBox AI</title>
+</head>
+<body style="text-align:center; font-family:Arial;">
+
+    <h1>🤖 BrainBox AI</h1>
+
+    <input id="q" placeholder="Sawal likho">
+    <button onclick="reply()">Poochho</button>
+
+    <p id="ans"></p>
+
+    <script>
+    function reply(){
+        let q = document.getElementById("q").value;
+
+        if(q == ""){
+            document.getElementById("ans").innerText = "Pehle sawal likho";
+        }
+        else if(q.toLowerCase().includes("hello")){
+            document.getElementById("ans").innerText = "Hello bhai 👋";
+        }
+        else if(q.toLowerCase().includes("name")){
+            document.getElementById("ans").innerText = "Mera naam BrainBox AI hai 🤖";
+        }
+        else{
+            document.getElementById("ans").innerText = "Main abhi seekh raha hun 😅";
+        }
+    }
+    </script>
+
+</body>
+  </html>
